@@ -5,7 +5,7 @@ import DashboardPage from "./pages/DashboardPage";
 import NotFoundPage from "./pages/NotFoundPage";
 import ProductsPage from "./pages/ProductsPage";
 import UomPage from "./pages/UomPage";
-import SupplierPage from "./pages/SuppplierPage";
+import SupplierPage from "./pages/SupplierPage";
 import TransactionPage from "./pages/TransactionPage";
 import TransactionDetailPage from "./pages/TransactionDetailPage";
 import PriceListPage from "./pages/PriceListPage";

@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import Pagination from "./Pagination";
 import SearchBar from "./SearchBar";
+import ItemsPerPageSelector from "./ItemsPerPageSelector";
 
 interface Uom {
   id: number;
@@ -18,7 +19,7 @@ interface UomTableProps {
 const UomTable: React.FC<UomTableProps> = ({ uoms, onEdit, onDelete }) => {
   const [currentPage, setCurrentPage] = useState(1);
   const [searchQuery, setSearchQuery] = useState("");
-  const itemsPerPage = 5;
+  const [itemsPerPage, setItemsPerPage] = useState(5);
 
   const filteredUoms = uoms.filter(
     (uom) =>
@@ -34,6 +35,16 @@ const UomTable: React.FC<UomTableProps> = ({ uoms, onEdit, onDelete }) => {
     <div className="overflow-x-auto">
       <SearchBar onSearch={setSearchQuery} placeholder="Search UOM..." />
 
+      {/* Dropdown Jumlah Item Per Halaman */}
+      <ItemsPerPageSelector
+        itemsPerPage={itemsPerPage}
+        onChange={(value) => {
+          setItemsPerPage(value);
+          setCurrentPage(1);
+        }}
+      />
+
+      {/* Tabel */}
       <table className="table table-zebra w-full">
         <thead>
           <tr>

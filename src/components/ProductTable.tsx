@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import Pagination from "./Pagination";
+import ItemsPerPageSelector from "./ItemsPerPageSelector";
 
 interface Product {
   id: number;
@@ -21,7 +22,7 @@ const ProductTable: React.FC<ProductTableProps> = ({
   onDelete,
 }) => {
   const [currentPage, setCurrentPage] = useState(1);
-  const itemsPerPage = 5;
+  const [itemsPerPage, setItemsPerPage] = useState(5);
 
   const startIndex = (currentPage - 1) * itemsPerPage;
   const endIndex = startIndex + itemsPerPage;
@@ -29,6 +30,13 @@ const ProductTable: React.FC<ProductTableProps> = ({
 
   return (
     <div className="overflow-x-auto">
+      <ItemsPerPageSelector
+        itemsPerPage={itemsPerPage}
+        onChange={(value) => {
+          setItemsPerPage(value);
+          setCurrentPage(1);
+        }}
+      />
       <table className="table table-zebra w-full">
         <thead>
           <tr>

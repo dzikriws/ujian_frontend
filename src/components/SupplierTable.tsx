@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import Pagination from "./Pagination";
 import { useNavigate } from "react-router-dom";
+import ItemsPerPageSelector from "./ItemsPerPageSelector";
 
 interface Supplier {
   id: number;
@@ -29,7 +30,7 @@ const SupplierTable: React.FC<SupplierTableProps> = ({
   onDelete,
 }) => {
   const [currentPage, setCurrentPage] = useState(1);
-  const itemsPerPage = 5;
+  const [itemsPerPage, setItemsPerPage] = useState(5);
 
   const navigate = useNavigate();
 
@@ -43,6 +44,13 @@ const SupplierTable: React.FC<SupplierTableProps> = ({
 
   return (
     <div className="overflow-x-auto">
+      <ItemsPerPageSelector
+        itemsPerPage={itemsPerPage}
+        onChange={(value) => {
+          setItemsPerPage(value);
+          setCurrentPage(1);
+        }}
+      />
       <table className="table table-zebra w-full">
         <thead>
           <tr>
@@ -65,7 +73,7 @@ const SupplierTable: React.FC<SupplierTableProps> = ({
                 <td>{supplier.city}</td>
                 <td>{supplier.country}</td>
                 <td>
-                  {supplier.contact_name} - {supplier.contact_phone}
+                  {supplier.contact_name} - &#40;{supplier.contact_phone}&#41;
                 </td>
                 <td className="flex gap-2">
                   <button
@@ -85,7 +93,7 @@ const SupplierTable: React.FC<SupplierTableProps> = ({
                     className="btn btn-sm btn-info"
                     onClick={() => handleSeeDetail(supplier.id)}
                   >
-                    Lihat Detail
+                    More
                   </button>
                 </td>
               </tr>

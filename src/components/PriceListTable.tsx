@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import Pagination from "./Pagination";
+import ItemsPerPageSelector from "./ItemsPerPageSelector";
 
 interface PriceList {
   price_list_id: number;
@@ -37,7 +38,7 @@ const PriceListTable: React.FC<PriceListTableProps> = ({
   };
 
   const [currentPage, setCurrentPage] = useState(1);
-  const itemsPerPage = 5;
+  const [itemsPerPage, setItemsPerPage] = useState(5);
 
   const startIndex = (currentPage - 1) * itemsPerPage;
   const endIndex = startIndex + itemsPerPage;
@@ -45,6 +46,13 @@ const PriceListTable: React.FC<PriceListTableProps> = ({
 
   return (
     <div className="overflow-x-auto">
+      <ItemsPerPageSelector
+        itemsPerPage={itemsPerPage}
+        onChange={(value) => {
+          setItemsPerPage(value);
+          setCurrentPage(1);
+        }}
+      />
       <table className="table table-zebra w-full">
         <thead>
           <tr>

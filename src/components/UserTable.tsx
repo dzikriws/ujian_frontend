@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import Pagination from "./Pagination";
 import SearchBar from "./SearchBar";
+import ItemsPerPageSelector from "./ItemsPerPageSelector";
 
 interface User {
   role_id: number;
@@ -19,7 +20,7 @@ interface UserTableProps {
 const UserTable: React.FC<UserTableProps> = ({ users, onEdit, onDelete }) => {
   const [currentPage, setCurrentPage] = useState(1);
   const [searchQuery, setSearchQuery] = useState("");
-  const itemsPerPage = 5;
+  const [itemsPerPage, setItemsPerPage] = useState(5);
 
   const filteredUsers = users.filter(
     (user) =>
@@ -34,6 +35,14 @@ const UserTable: React.FC<UserTableProps> = ({ users, onEdit, onDelete }) => {
   return (
     <div>
       <SearchBar onSearch={setSearchQuery} placeholder="Search users..." />
+
+      <ItemsPerPageSelector
+        itemsPerPage={itemsPerPage}
+        onChange={(value) => {
+          setItemsPerPage(value);
+          setCurrentPage(1);
+        }}
+      />
 
       <table className="table w-full">
         <thead>
