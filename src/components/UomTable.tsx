@@ -1,4 +1,6 @@
-import React from "react";
+import React, { useState } from "react";
+import Pagination from "./Pagination";
+import SearchBar from "./SearchBar";
 
 interface Uom {
   id: number;
@@ -14,8 +16,24 @@ interface UomTableProps {
 }
 
 const UomTable: React.FC<UomTableProps> = ({ uoms, onEdit, onDelete }) => {
+  const [currentPage, setCurrentPage] = useState(1);
+  const [searchQuery, setSearchQuery] = useState("");
+  const itemsPerPage = 5;
+
+  const filteredUoms = uoms.filter(
+    (uom) =>
+      uom.name.toLowerCase().includes(searchQuery.toLowerCase()) ||
+      uom.rate_conversion.toString().includes(searchQuery)
+  );
+
+  const indexOfLastItem = currentPage * itemsPerPage;
+  const indexOfFirstItem = indexOfLastItem - itemsPerPage;
+  const currentUoms = filteredUoms.slice(indexOfFirstItem, indexOfLastItem);
+
   return (
     <div className="overflow-x-auto">
+      <SearchBar onSearch={setSearchQuery} placeholder="Search UOM..." />
+
       <table className="table table-zebra w-full">
         <thead>
           <tr>
@@ -27,9 +45,9 @@ const UomTable: React.FC<UomTableProps> = ({ uoms, onEdit, onDelete }) => {
           </tr>
         </thead>
         <tbody>
-          {uoms.map((uom, index) => (
+          {currentUoms.map((uom, index) => (
             <tr key={uom.id}>
-              <td>{index + 1}</td>
+              <td>{indexOfFirstItem + index + 1}</td>
               <td>{uom.name}</td>
               <td>{uom.rate_conversion}</td>
               <td>{new Date(uom.created_at).toLocaleDateString()}</td>
@@ -51,6 +69,13 @@ const UomTable: React.FC<UomTableProps> = ({ uoms, onEdit, onDelete }) => {
           ))}
         </tbody>
       </table>
+
+      <Pagination
+        totalItems={filteredUoms.length}
+        itemsPerPage={itemsPerPage}
+        currentPage={currentPage}
+        onPageChange={setCurrentPage}
+      />
     </div>
   );
 };

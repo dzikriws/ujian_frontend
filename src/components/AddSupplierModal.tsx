@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import InputField from "../pages/InputField";
+import InputField from "./InputField";
 
 interface AddSupplierModalProps {
   isOpen: boolean;

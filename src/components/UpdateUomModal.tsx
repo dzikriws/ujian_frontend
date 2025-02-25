@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import InputField from "../pages/InputField";
+import InputField from "./InputField";
 
 interface UpdateUomModalProps {
   isOpen: boolean;
