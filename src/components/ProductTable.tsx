@@ -62,7 +62,7 @@ const ProductTable: React.FC<ProductTableProps> = ({
                   Edit
                 </button>
                 <button
-                  className="btn btn-sm btn-error"
+                  className="btn btn-sm btn-danger"
                   onClick={() => onDelete(product.id)}
                 >
                   Delete

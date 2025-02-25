@@ -75,7 +75,7 @@ const SupplierTable: React.FC<SupplierTableProps> = ({
                     Edit
                   </button>
                   <button
-                    className="btn btn-sm btn-error"
+                    className="btn btn-sm btn-danger"
                     onClick={() => onDelete(supplier.id)}
                   >
                     Delete

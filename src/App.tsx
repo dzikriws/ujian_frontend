@@ -6,11 +6,11 @@ import NotFoundPage from "./pages/NotFoundPage";
 import ProductsPage from "./pages/ProductsPage";
 import UomPage from "./pages/UomPage";
 import SupplierPage from "./pages/SuppplierPage";
-import EmployeePage from "./pages/EmployeePage";
 import TransactionPage from "./pages/TransactionPage";
 import TransactionDetailPage from "./pages/TransactionDetailPage";
 import PriceListPage from "./pages/PriceListPage";
 import SupplierDetailPage from "./pages/SupplierDetailPage";
+import UserRolePage from "./pages/UserRolePage";
 
 function App() {
   return (
@@ -24,7 +24,7 @@ function App() {
           <Route path="uoms" index element={<UomPage />} />
           <Route path="suppliers" index element={<SupplierPage />} />
           <Route path="suppliers/:id" element={<SupplierDetailPage />} />
-          <Route path="employees" index element={<EmployeePage />} />
+          <Route path="users" index element={<UserRolePage/>} />
           <Route path="transactions" index element={<TransactionPage />} />
           <Route path="transaction/:id" element={<TransactionDetailPage />} />
           <Route path="pricelists" index element={<PriceListPage />} />

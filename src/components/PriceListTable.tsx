@@ -71,7 +71,7 @@ const PriceListTable: React.FC<PriceListTableProps> = ({
                     Edit
                   </button>
                   <button
-                    className="btn btn-sm btn-error"
+                    className="btn btn-sm btn-danger"
                     onClick={() => onDelete(pl.price_list_id)}
                   >
                     Delete

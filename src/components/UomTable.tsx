@@ -41,7 +41,7 @@ const UomTable: React.FC<UomTableProps> = ({ uoms, onEdit, onDelete }) => {
                   Edit
                 </button>
                 <button
-                  className="btn btn-sm btn-error"
+                  className="btn btn-sm btn-danger"
                   onClick={() => onDelete(uom.id)}
                 >
                   Delete
