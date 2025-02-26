@@ -88,6 +88,7 @@ const AddPriceListModal: React.FC<AddPriceListModalProps> = ({
             <InputField
               label="Price"
               name="price"
+              type="number"
               value={price}
               onChange={(e) => setPrice(e.target.value)}
               required
