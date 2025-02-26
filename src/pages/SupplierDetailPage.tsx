@@ -100,6 +100,7 @@ const SupplierDetailPage: React.FC = () => {
               <th>Tax Rate</th>
               <th>Handled By</th>
               <th>Date</th>
+              <th>Action</th>
             </tr>
           </thead>
           <tbody>
@@ -110,6 +111,17 @@ const SupplierDetailPage: React.FC = () => {
                 <td>{txn.tax_rate}%</td>
                 <td>{txn.username}</td>
                 <td>{new Date(txn.transaction_date).toLocaleDateString()}</td>
+                <td>
+                  <button className="">
+                    <button
+                      type="button"
+                      className="btn btn-sm btn-info"
+                      onClick={() => navigate(`/transactions/${txn.id}`)}
+                    >
+                      More
+                    </button>
+                  </button>
+                </td>
               </tr>
             ))}
           </tbody>
