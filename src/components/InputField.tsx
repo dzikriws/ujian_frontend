@@ -19,15 +19,18 @@ const InputField: React.FC<InputFieldProps> = ({
 }) => {
   return (
     <div className="mb-2">
-      <label className="block font-semibold text-white">{label}</label>
-      <input
-        type={type}
-        name={name}
-        className="input input-bordered w-full"
-        value={value}
-        onChange={onChange}
-        required={required}
-      />
+      <label className="floating-label">
+        <span>{label} </span>
+        <input
+          type={type}
+          name={name}
+          placeholder=""
+          className="input input-bordered w-full"
+          value={value}
+          onChange={onChange}
+          required={required}
+        />
+      </label>
     </div>
   );
 };

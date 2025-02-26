@@ -40,7 +40,6 @@ const ProductTable: React.FC<ProductTableProps> = ({
       <table className="table table-zebra w-full">
         <thead>
           <tr>
-            <th>No.</th>
             <th>ID</th>
             <th>Product Name</th>
             <th>Description</th>
@@ -50,9 +49,8 @@ const ProductTable: React.FC<ProductTableProps> = ({
           </tr>
         </thead>
         <tbody>
-          {displayedProducts.map((product, index) => (
+          {displayedProducts.map((product) => (
             <tr key={product.id}>
-              <td>{startIndex + index + 1}</td>
               <td>{product.id}</td>
               <td>{product.product_name}</td>
               <td>{product.description}</td>

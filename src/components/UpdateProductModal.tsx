@@ -45,23 +45,29 @@ const UpdateProductModal: React.FC<UpdateProductModalProps> = ({
         <h2 className="text-xl font-bold mb-4 text-white">Update Product</h2>
         <form onSubmit={handleSubmit}>
           <div className="mb-2">
-            <label className="block font-semibold text-white">Product Name</label>
-            <input
-              type="text"
-              className="input input-bordered w-full"
-              value={productName}
-              onChange={(e) => setProductName(e.target.value)}
-              required
-            />
+            <label className="floating-label">
+              <span>Product Name</span>
+              <input
+                type="text"
+                placeholder=""
+                className="input input-bordered w-full"
+                value={productName}
+                onChange={(e) => setProductName(e.target.value)}
+                required
+              />
+            </label>
           </div>
           <div className="mb-2">
-            <label className="block font-semibold text-white">Description</label>
-            <textarea
-              className="textarea textarea-bordered w-full"
-              value={description}
-              onChange={(e) => setDescription(e.target.value)}
-              required
-            />
+            <label className="floating-label">
+              <span>Description</span>
+              <input
+                className="input input-bordered w-full"
+                placeholder=""
+                value={description}
+                onChange={(e) => setDescription(e.target.value)}
+                required
+              />
+            </label>
           </div>
           <div className="flex justify-end gap-2">
             <button type="button" className="btn" onClick={onClose}>

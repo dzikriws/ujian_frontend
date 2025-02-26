@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import InputField from "./InputField";
 
 interface AddProductModalProps {
   isOpen: boolean;
@@ -30,19 +31,18 @@ const AddProductModal: React.FC<AddProductModalProps> = ({
         <h2 className="text-xl font-bold mb-4 text-white">Add Product</h2>
         <form onSubmit={handleSubmit}>
           <div className="mb-2">
-            <label className="block font-semibold">Product Name</label>
-            <input
-              type="text"
-              className="input"
+            <InputField
+              label="Product Name"
+              name="product_name"
               value={productName}
               onChange={(e) => setProductName(e.target.value)}
               required
             />
           </div>
           <div className="mb-2">
-            <label className="block font-semibold">Description</label>
-            <textarea
-              className="textarea textarea-bordered w-full"
+            <InputField
+              label="Description"
+              name="description"
               value={description}
               onChange={(e) => setDescription(e.target.value)}
               required

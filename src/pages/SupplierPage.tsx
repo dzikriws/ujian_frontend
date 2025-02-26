@@ -22,7 +22,7 @@ const SupplierPage: React.FC = () => {
   }, []);
 
   useEffect(() => {
-    setFilteredSuppliers(suppliers); // Set awal untuk pencarian
+    setFilteredSuppliers(suppliers);
   }, [suppliers]);
 
   const fetchSuppliers = async () => {
@@ -76,10 +76,8 @@ const SupplierPage: React.FC = () => {
         </button>
       </div>
 
-      {/* Search Bar untuk pencarian */}
       <SearchBar onSearch={handleSearch} placeholder="Search Suppliers..." />
 
-      {/* Menggunakan filteredSuppliers */}
       <SupplierTable
         suppliers={filteredSuppliers}
         onEdit={handleEditSupplier}

@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import InputField from "./InputField";
 
 interface AddPriceListModalProps {
   isOpen: boolean;
@@ -84,10 +85,9 @@ const AddPriceListModal: React.FC<AddPriceListModalProps> = ({
             </select>
           </div>
           <div className="mb-2">
-            <label className="block font-semibold text-white">Price</label>
-            <input
-              type="text"
-              className="input input-bordered w-full"
+            <InputField
+              label="Price"
+              name="price"
               value={price}
               onChange={(e) => setPrice(e.target.value)}
               required

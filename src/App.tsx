@@ -26,7 +26,7 @@ function App() {
           <Route path="suppliers/:id" element={<SupplierDetailPage />} />
           <Route path="users" index element={<UserRolePage/>} />
           <Route path="transactions" index element={<TransactionPage />} />
-          <Route path="transaction/:id" element={<TransactionDetailPage />} />
+          <Route path="transactions/:id" element={<TransactionDetailPage />} />
           <Route path="pricelists" index element={<PriceListPage />} />
         </Route>
 

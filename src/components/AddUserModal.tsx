@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import InputField from "./InputField";
 
 interface AddUserModalProps {
   isOpen: boolean;
@@ -27,22 +28,24 @@ const AddUserModal: React.FC<AddUserModalProps> = ({
       <div className="bg-base-200 p-6 rounded shadow-lg w-96">
         <h2 className="text-xl font-bold mb-4 text-white">Add User</h2>
         <form onSubmit={handleSubmit}>
-          <input
-            type="text"
-            placeholder="Username"
-            className="input w-full mb-2"
-            value={username}
-            onChange={(e) => setUsername(e.target.value)}
-            required
-          />
-          <input
-            type="text"
-            placeholder="Role"
-            className="input w-full mb-2"
-            value={role}
-            onChange={(e) => setRole(e.target.value)}
-            required
-          />
+          <div className="mb-2">
+            <InputField
+              label="Username"
+              name="username"
+              value={username}
+              onChange={(e) => setUsername(e.target.value)}
+              required
+            />
+          </div>
+          <div className="mb-2">
+            <InputField
+              label="Role"
+              name="role"
+              value={role}
+              onChange={(e) => setRole(e.target.value)}
+              required
+            />
+          </div>
           <div className="flex justify-end gap-2">
             <button type="button" className="btn" onClick={onClose}>
               Cancel
