@@ -100,7 +100,7 @@ const ProductPage: React.FC = () => {
         </button>
       </div>
 
-      <SearchBar onSearch={handleSearch} placeholder="Search Products..." />
+      <SearchBar onSearch={handleSearch} placeholder="Search Products, Description or Date..." />
 
       {loading ? (
         <p>Loading...</p>

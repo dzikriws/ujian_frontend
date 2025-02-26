@@ -61,7 +61,7 @@ const UomTable: React.FC<UomTableProps> = ({ uoms, onEdit, onDelete }) => {
               <td>{indexOfFirstItem + index + 1}</td>
               <td>{uom.name}</td>
               <td>{uom.rate_conversion}</td>
-              <td>{new Date(uom.created_at).toLocaleDateString()}</td>
+              <td>{uom.created_at.split("T")[0]}</td>
               <td>
                 <button
                   className="btn btn-sm btn-warning mr-2"

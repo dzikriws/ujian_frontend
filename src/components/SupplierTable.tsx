@@ -60,6 +60,7 @@ const SupplierTable: React.FC<SupplierTableProps> = ({
             <th>City</th>
             <th>Country</th>
             <th>Contact</th>
+            <th>Phone</th>
             <th>Actions</th>
           </tr>
         </thead>
@@ -72,9 +73,8 @@ const SupplierTable: React.FC<SupplierTableProps> = ({
                 <td>{supplier.suplier_name}</td>
                 <td>{supplier.city}</td>
                 <td>{supplier.country}</td>
-                <td>
-                  {supplier.contact_name} - &#40;{supplier.contact_phone}&#41;
-                </td>
+                <td>{supplier.contact_name}</td>
+                <td>{supplier.contact_phone}</td>
                 <td className="flex gap-2">
                   <button
                     className="btn btn-sm btn-warning"

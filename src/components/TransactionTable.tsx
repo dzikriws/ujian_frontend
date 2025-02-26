@@ -36,6 +36,9 @@ const TransactionTable: React.FC<TransactionTableProps> = ({
         .includes(searchQuery.toLowerCase()) ||
       transaction.supplier?.suplier_name
         ?.toLowerCase()
+        .includes(searchQuery.toLowerCase()) ||
+      transaction.transaction_date
+        ?.toLowerCase()
         .includes(searchQuery.toLowerCase())
   );
 
@@ -54,10 +57,10 @@ const TransactionTable: React.FC<TransactionTableProps> = ({
   };
 
   return (
-    <div>
+    <div className="overflow-x-auto">
       <SearchBar
         onSearch={setSearchQuery}
-        placeholder="Search by Customer or Supplier..."
+        placeholder="Search by Customer, Supplier, or Date..."
       />
       <ItemsPerPageSelector
         itemsPerPage={itemsPerPage}
@@ -70,9 +73,9 @@ const TransactionTable: React.FC<TransactionTableProps> = ({
             <th>ID</th>
             <th>Type</th>
             <th>Customer / Supplier</th>
-            <th>Transaction Date</th>
             <th>Tax Rate</th>
-            <th>Username</th>
+            <th>Handled By</th>
+            <th>Transaction Date</th>
             <th>Action</th>
           </tr>
         </thead>
@@ -97,11 +100,11 @@ const TransactionTable: React.FC<TransactionTableProps> = ({
                 {transaction.customer_name ||
                   transaction.supplier?.suplier_name}
               </td>
-              <td>
-                {new Date(transaction.transaction_date).toLocaleDateString()}
-              </td>
               <td>{transaction.tax_rate}</td>
               <td>{transaction.username}</td>
+              <td>
+                {transaction.transaction_date.split("T")[0]}
+              </td>
               <td>
                 <button
                   type="button"

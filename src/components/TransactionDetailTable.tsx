@@ -64,7 +64,7 @@ const TransactionDetailTable: React.FC<TransactionDetailTableProps> = ({
               <td>{detail.uom.name}</td>
               <td>{parseFloat(detail.quantity).toFixed(2)}</td>
               <td>{parseFloat(detail.price).toFixed(2)}</td>
-              <td>{parseFloat(detail.amount).toFixed(2)}</td>
+              <td>{detail.amount}</td>
             </tr>
           ))}
         </tbody>

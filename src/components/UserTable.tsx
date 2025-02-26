@@ -33,8 +33,8 @@ const UserTable: React.FC<UserTableProps> = ({ users, onEdit, onDelete }) => {
   const currentUsers = filteredUsers.slice(indexOfFirstItem, indexOfLastItem);
 
   return (
-    <div>
-      <SearchBar onSearch={setSearchQuery} placeholder="Search users..." />
+    <div className="overflow-x-auto">
+      <SearchBar onSearch={setSearchQuery} placeholder="Search Users or Role..." />
 
       <ItemsPerPageSelector
         itemsPerPage={itemsPerPage}
@@ -59,7 +59,7 @@ const UserTable: React.FC<UserTableProps> = ({ users, onEdit, onDelete }) => {
             <tr key={user.role_id}>
               <td>{user.username}</td>
               <td>{user.role}</td>
-              <td>{new Date(user.ts_insert).toLocaleDateString()}</td>
+              <td>{user.ts_insert.split("T")[0]}</td>
               <td>
                 <span
                   className={`px-2 py-1 rounded text-white text-sm font-semibold ${

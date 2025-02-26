@@ -54,10 +54,10 @@ const ProductTable: React.FC<ProductTableProps> = ({
               <td>{product.id}</td>
               <td>{product.product_name}</td>
               <td>{product.description}</td>
-              <td>{new Date(product.created_at).toLocaleDateString()}</td>
+              <td>{product.created_at.split("T")[0]}</td>
               <td>
                 {product.updated_at
-                  ? new Date(product.updated_at).toLocaleDateString()
+                  ? product.updated_at.split("T")[0]
                   : "-"}
               </td>
               <td className="flex gap-2">

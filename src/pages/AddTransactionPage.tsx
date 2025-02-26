@@ -4,6 +4,7 @@ import { getUserRoles } from "../services/userRoleService";
 import { getProducts } from "../services/productService";
 import { getUoms } from "../services/uomServices";
 import { addTransaction } from "../services/transactionService";
+import { useNavigate } from "react-router-dom";
 
 const AddTransactionPage: React.FC = () => {
   const [transactionType, setTransactionType] = useState("penjualan");
@@ -20,6 +21,7 @@ const AddTransactionPage: React.FC = () => {
   const [users, setUsers] = useState([]);
   const [products, setProducts] = useState([]);
   const [uoms, setUoms] = useState([]);
+  const navigate = useNavigate();
 
   useEffect(() => {
     getSuppliers().then(setSuppliers);
@@ -47,6 +49,7 @@ const AddTransactionPage: React.FC = () => {
       const response = await addTransaction(transactionData);
       alert("Transaction added successfully!");
       console.log(response);
+      navigate(`/transactions/${response.data.transaction.id}`);
     } catch (error) {
       console.error("Error adding transaction:", error);
       alert("Failed to add transaction.");

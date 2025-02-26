@@ -76,7 +76,7 @@ const SupplierPage: React.FC = () => {
         </button>
       </div>
 
-      <SearchBar onSearch={handleSearch} placeholder="Search Suppliers..." />
+      <SearchBar onSearch={handleSearch} placeholder="Search Suppliers, Location or Contact..." />
 
       <SupplierTable
         suppliers={filteredSuppliers}
