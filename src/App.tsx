@@ -11,6 +11,7 @@ import TransactionDetailPage from "./pages/TransactionDetailPage";
 import PriceListPage from "./pages/PriceListPage";
 import SupplierDetailPage from "./pages/SupplierDetailPage";
 import UserRolePage from "./pages/UserRolePage";
+import AddTransactionPage from "./pages/AddTransactionPage";
 
 function App() {
   return (
@@ -28,6 +29,7 @@ function App() {
           <Route path="transactions" index element={<TransactionPage />} />
           <Route path="transactions/:id" element={<TransactionDetailPage />} />
           <Route path="pricelists" index element={<PriceListPage />} />
+          <Route path="add-transaction" index element={<AddTransactionPage />} />
         </Route>
 
         <Route path="*" element={<NotFoundPage />} />

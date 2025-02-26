@@ -10,3 +10,8 @@ export const getDetailTransaction = async (id: number) => {
   const response = await api.get(`/transaction-detail/${id}`);
   return response.data.data;
 };
+
+export const addTransaction = async (transactionData: any) => {
+  const response = await api.post("/transactions", transactionData);
+  return response.data;
+};
