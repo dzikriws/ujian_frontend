@@ -47,6 +47,9 @@ const Navbar: React.FC = () => {
             <li>
               <a href="/transactions">Transaction</a>
             </li>
+            <li>
+              <a href="http://localhost:3001/">Documentations</a>
+            </li>
           </ul>
         </div>
       </div>

@@ -27,7 +27,7 @@ const DashboardPage: React.FC = () => {
 
   return (
     <div className="p-6 flex flex-col items-center">
-      <h2 className="text-2xl font-bold mb-4">Admin Dashboard</h2>
+      <h2 className="text-2xl font-bold mb-4">Dashboard</h2>
       <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 mx-auto border-1 border-indigo-500">
         <StatCard
           title="Total Transactions"

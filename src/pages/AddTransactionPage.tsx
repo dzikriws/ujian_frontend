@@ -31,6 +31,31 @@ const AddTransactionPage: React.FC = () => {
   }, []);
 
   const handleAddTransaction = async () => {
+    if (transactionType === "pembelian" && !supplierId) {
+      alert("Please select a supplier.");
+      return;
+    }
+
+    if (transactionType === "penjualan" && !customerName) {
+      alert("Please enter a customer name.");
+      return;
+    }
+
+    if (!transactionDate) {
+      alert("Please select a transaction date.");
+      return;
+    }
+
+    if (!username) {
+      alert("Please select a user who handled this transaction.");
+      return;
+    }
+
+    if (transactionDetails.length === 0) {
+      alert("Please add at least one transaction detail.");
+      return;
+    }
+
     const transactionData = {
       transaction_type: transactionType,
       customer_name: transactionType === "penjualan" ? customerName : null,
@@ -80,6 +105,7 @@ const AddTransactionPage: React.FC = () => {
           <div>
             <label className="block text-gray-700">Customer Name</label>
             <input
+              required
               type="text"
               className="w-full border rounded p-2"
               value={customerName}
@@ -130,7 +156,7 @@ const AddTransactionPage: React.FC = () => {
 
         {/* Username */}
         <div>
-          <label className="block text-gray-700">Username</label>
+          <label className="block text-gray-700">Handled By</label>
           <select
             className="w-full border rounded p-2 bg-base-200"
             onChange={(e) => setUsername(e.target.value)}
